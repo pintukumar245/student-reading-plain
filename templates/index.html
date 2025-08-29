@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Study Planner - Input</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>📚 Study Planner</h1>
+    <form method="POST">
+        
+        <!-- Level -->
+        <label>Level:</label>
+        <select name="Level" required>
+            <option value="" disabled selected>Choose_Level</option>
+            {% for opt in options.Level %}
+                <option value="{{ opt }}">{{ opt }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Class / Year -->
+        <label>Class_Year:</label>
+        <select name="Class_Year" required>
+            <option value="" disabled selected>Choose Class_Year</option>
+            {% for opt in options.Class_Year %}
+                <option value="{{ opt }}">{{ opt }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Course / Stream -->
+        <label>Course_Stream:</label>
+        <select name="Course_Stream" required>
+            <option value="" disabled selected>Choose Course_Stream</option>
+            {% for opt in options.Course_Stream %}
+                <option value="{{ opt }}">{{ opt }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Subject -->
+        <label>Subject:</label>
+        <select name="Subject" required>
+            <option value="" disabled selected>Choose Subject</option>
+            {% for opt in options.Subject %}
+                <option value="{{ opt }}">{{ opt }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Preferred Study Time -->
+        <label>Preferred Study Time:</label>
+        <select name="Preferred_Study_Time" required>
+            <option value="" disabled selected>Choose Preferred Time</option>
+            {% for opt in options.Preferred_Study_Time %}
+                <option value="{{ opt }}">{{ opt }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Numeric fields -->
+        <label>Syllabus Length (e.g., chapters):</label>
+        <input type="number" name="Syllabus_Length" step="1" min="0" required>
+
+        <label>Difficulty Level (1-5):</label>
+        <input type="number" name="Difficulty_Level" step="1" min="1" max="5" required>
+
+        <label>Hours Available Per Day:</label>
+        <input type="number" name="Hours_Available_Per_Day" step="0.5" min="0" required>
+
+        <label>Days Left:</label>
+        <input type="number" name="Days_Left" step="1" min="0" required>
+
+        <button type="submit">Predict</button>
+    </form>
+</div>
+</body>
+</html>
+<!-- <script>
+    window.courseStreamsData = {{ options.Course_Stream | tojson | safe }};
+    window.subjectsData = {{ options.Subject | tojson | safe }};
+</script> -->
+
+<!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->

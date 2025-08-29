@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>✅ Prediction Result</h1>
+    <p>Your recommended study time:</p>
+    <h2>{{ prediction }} hours/day</h2>
+    <a href="/"><button>🔙🏃‍♀️ Back</button></a>
+</div>
+</body>
+</html>
